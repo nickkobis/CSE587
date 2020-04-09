@@ -11,6 +11,8 @@ list:
 #to run:
 #make run M=./mapper.py R=./reducer.py I=/home/gutenburg/ O=takeX
 run: 
+	hdfs dfs -mkdir -p /home
+	hdfs dfs -mkdir -p /home/output
 	hadoop jar /home/cse587/hadoop-3.1.2/share/hadoop/tools/lib/hadoop-streaming-3.1.2.jar \
 	-file $(M) -mapper "python3 $(M)" -file $(R) -reducer "python3 $(R)" -input $(I) -output /home/output/$(O)
 
@@ -22,6 +24,7 @@ clean:
 	rm ./temp/*
 
 clean_hadoop:
+	hdfs dfs -rm /home/output/*/*
 	hdfs dfs -rmdir --ignore-fail-on-non-empty /home/output/*
 
 #moves file from input to project file
@@ -29,6 +32,7 @@ clean_hadoop:
 #to run:
 #make takeout I=take7 O=my_new_output_file
 takeout:
-	@hdfs dfs -copyToLocal /home/output/$(I)/part* ./temp/
+	mkdir -p ./temp 
+	@hdfs dfs -copyToLocal -f /home/output/$(I)/part* ./temp/
 	cp ./temp/part* ./output/$(O)
 	rm ./temp/*
