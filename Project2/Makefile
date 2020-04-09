@@ -10,9 +10,7 @@ list:
 #to run:
 #make run M=./mapper.py R=./reducer.py I=/home/part1/ O=/home/part1/output/
 run: 
-	hadoop jar /home/cse587/hadoop-3.1.2/share/hadoop/tools/lib/hadoop-streaming-3.1.2.jar \
-	-file $(M) -mapper $(M) -file $(R) -reducer $(R)\
-	-input $(I) -output $(O)
+	hadoop jar /home/cse587/hadoop-3.1.2/share/hadoop/tools/lib/hadoop-streaming-3.1.2.jar -file $(M) -mapper $(M) -file $(R) -reducer $(R) -input $(I) -output $(O)
 
 end: 
 	stop-all.sh
