@@ -23,7 +23,7 @@ setuphdfs:
 #make takeout I=part7 O=my_new_output_file
 takeout:
 	mkdir ./temp
-	hsdf dfs -copyToLocal /home/output/$(I)/* ./temp/
+	hdfs dfs -copyToLocal /home/output/$(I)/* ./temp/
 	cp ./temp/part* $(O)
 	rm ./temp/*
 	rmdir ./temp
