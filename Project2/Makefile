@@ -17,11 +17,18 @@ run:
 end: 
 	stop-all.sh
 
+clean:
+	rm ./output/*
+	rm ./temp/*
+
+clean_hadoop:
+	hdfs dfs -rmdir --ignore-fail-on-non-empty /home/output/*
+
 #moves file from input to project file
 #make sure /home/ouput is set up in the hdfs
 #to run:
 #make takeout I=take7 O=my_new_output_file
 takeout:
-	hdfs dfs -copyToLocal /home/output/$(I)/* ./temp/
+	@hdfs dfs -copyToLocal /home/output/$(I)/part* ./temp/
 	cp ./temp/part* ./output/$(O)
 	rm ./temp/*
