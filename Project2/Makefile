@@ -32,7 +32,8 @@ clean_hadoop:
 #to run:
 #make takeout I=take7 O=my_new_output_file
 takeout:
-	mkdir -p ./temp 
+	mkdir -p ./temp
+	mkdir -p ./output
 	@hdfs dfs -copyToLocal -f /home/output/$(I)/part* ./temp/
 	cp ./temp/part* ./output/$(O)
 	rm ./temp/*
