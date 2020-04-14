@@ -10,13 +10,13 @@ for data in sys.stdin:
     for i in range(length):
         if words[i] in special:
             if i+2 < length:
-                word = words[i] + "_" + words[i+1] + "_" + words[i+2]
+                word = "$" + "_" + words[i+1] + "_" + words[i+2]
                 print(word, "\t1")
             if i+1 < length and i-1 >= 0:
-                word = words[i-1] + "_" + words[i] + "_" + words[i+1]
+                word = words[i-1] + "_" + "$" + "_" + words[i+1]
                 print(word, "\t1")
             if i-2 >= 0:
-                word = words[i-2] + "_" + words[i-1] + "_" + words[i]
+                word = words[i-2] + "_" + words[i-1] + "_" + "$"
                 print(word, "\t1")
 
         
