@@ -1,22 +1,28 @@
 import sys
 
+def print_func(mlist):
+    print("-------")
+    for elem in mlist:
+        print(elem)
+
 top10_array =[]
 for line in sys.stdin:
     #assume 000000000000xxx(tab)hello_$_world
     key,value = line.split("\t")
     key = int(key)
+    value = value[:len(value)-1]
     if len(top10_array)<10:
         top10_array.append((key,value))
     else:
+        minimum = 999999999999999
+        min_index =-1
         for i in range(10):
-            minimum = 999999999999999
-            min_index =-1
             if(minimum>top10_array[i][0]):
                 minimum = top10_array[i][0]
                 min_index = i
-            if(key>minimum):
-                top10_array[min_index]=(key,value)
-print(top10_array)
+        if(key>minimum):
+            top10_array[min_index]=(key,value)
+    print_func(top10_array)
 size_of_top10 = len(top10_array)
 for number in range(size_of_top10):
     maximum =0
