@@ -21,7 +21,7 @@ size_of_top10 = len(top10_array)
 for number in range(size_of_top10):
     maximum =0
     max_index =-1
-    for i in len(top10_array):
+    for i in len(range(top10_array)):
         if top10_array[i][0] > maximum:
             maximum = top10_array[i][0]
             max_index = i
