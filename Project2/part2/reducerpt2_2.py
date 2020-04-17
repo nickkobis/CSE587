@@ -17,8 +17,8 @@ for line in sys.stdin:
             if(key>minimum):
                 top10_array[min_index]=(key,value)
 
-
-for number in range(10):
+size_of_top10 = len(top10_array)
+for number in size_of_top10:
     maximum =0
     max_index =-1
     for i in len(top10_array):
