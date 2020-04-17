@@ -16,14 +16,14 @@ for line in sys.stdin:
                 min_index = i
             if(key>minimum):
                 top10_array[min_index]=(key,value)
-
+print(top10_array)
 size_of_top10 = len(top10_array)
 for number in range(size_of_top10):
     maximum =0
     max_index =-1
-    for i in len(range(top10_array)):
+    for i in range(len(top10_array)):
         if top10_array[i][0] > maximum:
             maximum = top10_array[i][0]
             max_index = i
-    print(top10_array[max_index][1],'\t',top10_array[max_index][0])
+    print(top10_array[max_index][1],'\t',int(top10_array[max_index][0]))
     top10_array.pop(max_index)
