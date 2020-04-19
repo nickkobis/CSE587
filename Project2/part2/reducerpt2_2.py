@@ -6,6 +6,7 @@ for line in sys.stdin:
     key,value = line.split("\t")
     key = int(key)
     value = value[:len(value)-1]
+    value = value.strip()
     if len(top10_array)<10:
         top10_array.append((key,value))
     else:

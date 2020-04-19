@@ -16,6 +16,7 @@ run:
 	hadoop jar /home/cse587/hadoop-3.1.2/share/hadoop/tools/lib/hadoop-streaming-3.1.2.jar \
 	-file $(M) -mapper "python3 $(M)" -file $(R) -reducer "python3 $(R)" -input $(I) -output /home/output/$(O) 
 
+#not used
 run2: 
 	hdfs dfs -mkdir -p /home
 	hdfs dfs -mkdir -p /home/output
