@@ -6,7 +6,8 @@ current_locations = None
 for line in sys.stdin:
     #assume to be sorted
     key,value = line.split("\t")
-    value = value.split()
+    value = value.strip()
+    key = key.strip()
     
     if key != current_word:
         #send the current word away
