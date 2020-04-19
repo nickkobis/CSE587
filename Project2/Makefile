@@ -19,23 +19,23 @@ run:
 #to run: (f is for file)
 #make run1 F=1
 run1:
-	make run M=./part1/mapperp1.py R=./part1/reducerp1.py I=/home/gutenberg/ O=take_part1_$(F)
+	make run M=./part1/mapperpt1.py R=./part1/reducerpt1.py I=/home/gutenberg/ O=take_part1_$(F)
 	make takeout I=take_part1_$(F) O=out_part1_$(F)
 	cat ./output/out_part1_$(F)
 
 run2:
-	make run M=./part2/mapperp2_1.py R=./part2/reducerp2_1.py I=/home/gutenberg/ O=take_part21_$(F)
-	make run M=./part2/mapperp2_2.py R=./part2/reducerp2_2.py I=/home/output/take_part21_$(F)/part* O=take_part22_$(F)
+	make run M=./part2/mapperpt2_1.py R=./part2/reducerpt2_1.py I=/home/gutenberg/ O=take_part21_$(F)
+	make run M=./part2/mapperpt2_2.py R=./part2/reducerpt2_2.py I=/home/output/take_part21_$(F)/part* O=take_part22_$(F)
 	make takeout I=take_part22_$(F) O=out_part2_$(F)
 	cat ./output/out_part2_$(F)
 
 run3:
-	make run M=./part3/mapperp3.py R=./part3/reducerp3.py I=/home/gutenberg/ O=take_part3_$(F)
+	make run M=./part3/mapperpt3.py R=./part3/reducerpt3.py I=/home/gutenberg/ O=take_part3_$(F)
 	make takeout I=take_part3_$(F) O=out_part3_$(F)
 	cat ./output/out_part3_$(F)
 
 run4:
-	make run M=./part4/mapperp4.py R=./part4/reducerp4.py I=/home/csv/ O=take_part4_$(F)
+	make run M=./part4/mapperpt4.py R=./part4/reducerpt4.py I=/home/csv/ O=take_part4_$(F)
 	make takeout I=take_part4_$(F) O=out_part4_$(F)
 	cat ./output/out_part4_$(F)
 
